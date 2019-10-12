@@ -16,7 +16,7 @@ for(let i=1;i<=level;++i){
     document.write("<br>")
 }
 
-let str = '<table border="1>'
+let str = '<table border="1">'
 for(let i=1;i<10;++i){
     str += '<tr>'
     for(var j=1;j<=i;++j){
@@ -25,4 +25,4 @@ for(let i=1;i<10;++i){
     str += '</tr>'
 }
 str += '</table>'
-document.getElementById('table').innerHTML = strs
+document.getElementById('table').innerHTML = str
