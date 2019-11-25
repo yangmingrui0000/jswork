@@ -1,27 +1,75 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>杨明锐的万年历</title>
-    <link rel="stylesheet" type="text/css" href="index.css" />
-</head>
+    <meta charset="UTF-8">
+    <title>杨明锐的万年历li</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
 <body>
-    <div id="calendar">
-        <div id="month_year">
-          <select id="year"></select>年
-          <select id="month"></select>月
-        </div>
-        <ul id="title">
-          <li>星期日</li>
-          <li>星期一</li>
-          <li>星期二</li>
-          <li>星期三</li>
-          <li>星期四</li>
-          <li>星期五</li>
-          <li>星期六</li>
+  <div id="box">
+    <div id="top">
+        <select name="query-year" id="year">
+            <option value="">Select year</option>
+        </select>年
+        <select name="query-month" id="month">
+            <option value="">Select month</option>
+        </select>月
+        <button style="width:60px;margin-left:20px;" id="inquriy" onclick="query()">query</button>
+    </div>
+    <div id="con">
+        <ul class="week">
+            <li class="weekend">日</li>
+            <li>一</li>
+            <li>二</i>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li class="weekend">六</li>
         </ul>
-        <ul id="datesUl"></ul>
-      </div> 
+        <ul class="day">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</div>
 </body>
 <script src="index.js"></script>
 </html>

@@ -1,64 +1,62 @@
+var oYear = document.getElementById('year');
+var oMonth = document.getElementById('month');
+var oday = document.querySelector('.day');
+var oLi = document.querySelectorAll('.day li');
+var curDate = new Date();
 
-  var yearSelect = document.getElementById('year');
-  var monthSelect = document.getElementById('month');
-  var datesUl = document.getElementById('datesUl');
-  function init(){
-    for(var year=1990;year<3000;year++){   
-      createOption(year,year,yearSelect);
+eachFor(1900,2051,function(val){
+    var option = document.createElement("option");
+    option.innerHTML = val;
+    option.value = val;
+    if(curDate.getFullYear() == val){
+        option.selected = true;
     }
-    for(var month=1;month<13;month++){
-      createOption(month,month,monthSelect);
-    }
-    var now = new Date();          
-    showSelect(now.getFullYear(),now.getMonth()+1); 
- 
-    showDates();           
- 
-    yearSelect.onchange=function(){    
-      showDates();
-    };
-    monthSelect.onchange=function(){
-      showDates();
-    }
-  }
-  init();        
-  function createOption(text,value,parent){
-    var option = document.createElement('option');
-    option.innerHTML = text;
-    option.value = value;
-    parent.appendChild(option);
-  }
- 
-  function showSelect(year,month){
-    yearSelect.value = year;
-    monthSelect.value = month;
-  }
-  function getDays(year,month){
-    var d = new Date(year,month,1);
-    return d.getDay();
-  }
- 
-  function showDates(){
-    datesUl.innerHTML= "";
-    var year = yearSelect.value;
-    var month = monthSelect.value;
+    oYear.appendChild(option);
+});
 
-    for(var i=0;i<getDays(year,month);i++){
-      createLi("",datesUl);
+eachFor(0,11,function(val){
+    var option = document.createElement("option");
+    option.innerHTML = parseInt(val) +1;
+    option.value = val;
+    if(curDate.getMonth() == val){
+        option.selected = true;
     }
+    oMonth.appendChild(option);
+});
 
-    for(var j=1;j<=getDatesOfMonth(year,month);j++){
-      createLi(j,datesUl);
+function eachFor(start, end, callback){
+    for(var i = start; i <= end ; i++){
+        callback(i);
     }
-  }
-
-  function createLi(text,parent){
-    var li = document.createElement('li');
-    li.innerHTML = text;
-    parent.appendChild(li);
-  }
-
-  function getDatesOfMonth(year,month){
-    var d = new Date(year,month,0);
-    return d.getDate();
-  }
+}
+function query(){
+    var year = oYear.value ;
+    var month = oMonth.value ;
+    if(year && month){
+        console.log(year +"--"+month);
+        var firstDate = new Date(year,month,1);
+        var dayOfWeek = firstDate.getDay();
+        var conutDay =  getMonthDays(year,month);
+        console.log("countDay="+conutDay);
+        oLi.forEach(function(el,index){
+            el.innerHTML = '';
+        })
+        eachFor(1,conutDay,function(val){
+            oLi[dayOfWeek + val - 1].innerHTML = val;
+        });
+    }else{
+        alert('请先选择年份和月份');
+    }
+}
+function getMonthDays(year,month){
+    var datas = [];
+    if(year%400 ==0 || (year%4==0 && year%100!=0)){
+        datas = [31,29,31,30,31,30,31,31,30,31,30.31];
+     
+    }else{
+        datas = [31,28,31,30,31,30,31,31,30,31,30.31];
+    }
+    console.log(year +"--"+ month +"--"+ datas[month]);
+    return datas[month];
+}
+query();
