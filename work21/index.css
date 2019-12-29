@@ -28,23 +28,24 @@
 
 .dot {
     position: absolute;
-    bottom:10px;
+    bottom: 10px;
     width: 100%;
     text-align: center;
     font-size: 0;
 }
 
 .dot li {
-    display:block;
-    display:inline-block;
+    display: block;
+    display: inline-block;
     margin: 0 5px;
-    width:15px;
-    height:15px;
-    border-radius:100%;
-    background:口rgba(145,144,144,.5);cursor: pointer;
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    background: 口rgba(145, 144, 144, .5);
+    cursor: pointer;
 }
 
-dot .on{
+.dot .on{
     background-color:#fff;
 }
 

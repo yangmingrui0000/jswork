@@ -66,7 +66,7 @@ $(function (){
     }
     //自动切换对应的圆点
     function dotChange() {
-        if (i == $('.hot li').length - 1){
+        if (i == $('.hot li').length - 1) {
             $('.dot li').eq(0).addClass('on').siblings().removeClass('on');
         } else {
             $('.dot li').eq(i).addClass('on').siblings().removeClass('on');
