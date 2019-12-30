@@ -1,4 +1,4 @@
-var jms = null
+jms = null
 var timeHandle = null;
 var xmlhttp=new XMLHttpRequest()
 xmlhttp.onreadystatechange = function () {
@@ -67,7 +67,7 @@ function init(rowCount, colCount, minLandMineCount, maxLandMineCount) {
 
         //开始
         jms.begin();
-        this.disabled="disable"
+        this.disabled="disabled"
 
         //
         timeHandle = setInterval(function() {

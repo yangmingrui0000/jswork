@@ -14,7 +14,7 @@
         this.arrs = [];//格子对应的数组
         this.beginTime = null;//游戏开始时间
         this.endTime = null;//游戏结束时间
-        this.currentSetpCount = 0;//当前走的步数
+        this.currentSetpCount = 100;//当前走的步数
         this.endCallBack = null;//游戏结束时的回调函数
         this.landMineCallBack = null;//标记为地雷时更新剩余地雷个数的回调函数
         this.doc.oncontextmenu = function () {//禁用右键菜单
@@ -51,7 +51,7 @@
                 tds.push("</td>");
             }
             this.setTableInnerHTML(this.table, tds.join(""));
-        }
+        },
         //初始化，一是设置数组默认值为0,二是确定地雷个数
         init: function() {
             for (var i = 0; i < this.rowCount; i++) {
@@ -156,7 +156,7 @@
             for (var i = x - 1; i < x + 2; i++)
                 for(var j = y - 1;j < y + 2; j++) {
                     if (!(i == x && j == y)) {
-                        var ele = this.$("m_" + i + "" + j);
+                        var ele = this.$("m_" + i + "_" + j);
                         if (ele && ele.className == "") {
                             this.openBlock.call(this, ele, i, j);
                         }
